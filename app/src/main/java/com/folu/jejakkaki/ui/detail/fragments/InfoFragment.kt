@@ -45,7 +45,6 @@ class InfoFragment : Fragment() {
 
             val carouselAdapter = CarouselAdapter(carouselItems) { imageResId ->
                 val dialog = ImageDialogFragment.newInstance(imageResId)
-                dialog.setStyle(DialogFragment.STYLE_NORMAL, R.style.CustomDialogTheme)
                 dialog.show(parentFragmentManager, "ImageDialogFragment")
             }
             binding.carousel.adapter = carouselAdapter

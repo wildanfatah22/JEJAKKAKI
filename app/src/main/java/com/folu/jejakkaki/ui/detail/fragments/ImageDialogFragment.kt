@@ -28,7 +28,7 @@ class ImageDialogFragment : DialogFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.dialog_image_view, container, false)
+        val view = inflater.inflate(R.layout.fragment_image_dialog, container, false)
         val imageView = view.findViewById<ImageView>(R.id.imageView)
         val imageResId = arguments?.getInt(IMAGE_RES_ID)
         imageResId?.let { imageView.setImageResource(it) }
