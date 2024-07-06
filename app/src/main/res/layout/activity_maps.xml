@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:keepScreenOn="true"
+    android:layout_height="match_parent"
+    android:background="@color/not_black">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/head_banner"
+        android:layout_width="match_parent"
+        android:layout_height="172dp"
+        android:layout_marginHorizontal="98dp"
+        android:adjustViewBounds="true"
+        android:background="@drawable/map_rectangle"
+        android:scaleType="centerInside"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/customRoundedImageView" />
+
+    <ImageView
+        android:layout_width="137dp"
+        android:layout_height="96dp"
+        android:layout_gravity="center"
+        android:contentDescription="logo_java_jazz_festival"
+        android:scaleType="centerInside"
+        android:src="@drawable/logo_jjf_white"
+        app:layout_constraintBottom_toBottomOf="@id/head_banner"
+        app:layout_constraintEnd_toEndOf="@id/head_banner"
+        app:layout_constraintStart_toStartOf="@id/head_banner"
+        app:layout_constraintTop_toTopOf="@id/head_banner" />
+
+    <ImageView
+        android:id="@+id/left_icon"
+        android:layout_width="280dp"
+        android:layout_height="96dp"
+        android:layout_gravity="start|center_vertical"
+        android:layout_marginStart="44dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/klhk"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_klhk"
+        app:layout_constraintBottom_toBottomOf="@id/head_banner"
+        app:layout_constraintStart_toStartOf="@id/head_banner"
+        app:layout_constraintTop_toTopOf="@id/head_banner" />
+
+    <ImageView
+        android:id="@+id/right_icon"
+        android:layout_width="302dp"
+        android:layout_height="96dp"
+        android:layout_gravity="end|center_vertical"
+        android:layout_marginEnd="44dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="Back"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_folunet"
+        app:layout_constraintBottom_toBottomOf="@id/head_banner"
+        app:layout_constraintEnd_toEndOf="@id/head_banner"
+        app:layout_constraintTop_toTopOf="@id/head_banner" />
+
+    <ImageButton
+        android:id="@+id/pulauSumatra"
+        android:layout_width="634dp"
+        android:layout_height="662dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="244dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_sumatera"
+        app:layout_constraintBottom_toTopOf="@id/tvLogo"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/pulauSiberut"
+        android:layout_width="48dp"
+        android:layout_height="71dp"
+        android:layout_marginStart="188dp"
+        android:layout_marginBottom="204dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_siberut"
+        android:transitionName="pulauSiberut"
+        app:layout_constraintBottom_toBottomOf="@id/pulauSumatra"
+        app:layout_constraintStart_toStartOf="@id/pulauSumatra" />
+
+    <ImageView
+        android:id="@+id/markerSumatra"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="200dp"
+        android:layout_marginBottom="300dp"
+        android:src="@drawable/ic_outline_place_64"
+        app:layout_constraintBottom_toBottomOf="@id/pulauSumatra"
+        app:layout_constraintEnd_toEndOf="@id/pulauSumatra"
+        app:layout_constraintStart_toStartOf="@id/pulauSumatra"
+        app:layout_constraintTop_toTopOf="@id/pulauSumatra"
+        app:tint="@color/white" />
+
+    <ImageButton
+        android:id="@+id/pulauKalimantan"
+        android:layout_width="584dp"
+        android:layout_height="478dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="135dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_kalimantan"
+        app:layout_constraintStart_toEndOf="@id/pulauSumatra"
+        app:layout_constraintTop_toTopOf="@id/pulauSumatra" />
+
+    <ImageView
+        android:id="@+id/markerKalimantan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="128dp"
+        android:layout_marginTop="200dp"
+        android:src="@drawable/ic_outline_place_64"
+        app:layout_constraintBottom_toBottomOf="@id/pulauKalimantan"
+        app:layout_constraintEnd_toEndOf="@id/pulauKalimantan"
+        app:layout_constraintStart_toStartOf="@id/pulauKalimantan"
+        app:layout_constraintTop_toTopOf="@id/pulauKalimantan"
+        app:tint="@color/white" />
+
+    <ImageButton
+        android:id="@+id/pulauJawa"
+        android:layout_width="543dp"
+        android:layout_height="163dp"
+        android:layout_marginStart="-71dp"
+        android:layout_marginTop="3dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_jawa"
+        app:layout_constraintStart_toEndOf="@id/pulauSumatra"
+        app:layout_constraintTop_toBottomOf="@id/pulauSumatra" />
+
+    <ImageView
+        android:id="@+id/markerJawa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="128dp"
+        android:layout_marginBottom="22dp"
+        android:src="@drawable/ic_outline_place_64"
+        app:layout_constraintBottom_toBottomOf="@id/pulauJawa"
+        app:layout_constraintEnd_toEndOf="@id/pulauJawa"
+        app:layout_constraintStart_toStartOf="@id/pulauJawa"
+        app:layout_constraintTop_toTopOf="@id/pulauJawa"
+        app:tint="@color/white" />
+
+    <ImageButton
+        android:id="@+id/pulauBali"
+        android:layout_width="613dp"
+        android:layout_height="122dp"
+        android:layout_marginTop="-24dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_bali"
+        app:layout_constraintStart_toEndOf="@id/pulauJawa"
+        app:layout_constraintTop_toBottomOf="@id/pulauJawa" />
+
+    <ImageView
+        android:id="@+id/markerBali"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="200dp"
+        android:layout_marginBottom="80dp"
+        android:src="@drawable/ic_outline_place_64"
+        app:layout_constraintBottom_toBottomOf="@id/pulauBali"
+        app:layout_constraintEnd_toEndOf="@id/pulauBali"
+        app:layout_constraintStart_toStartOf="@id/pulauBali"
+        app:layout_constraintTop_toTopOf="@id/pulauBali"
+        app:tint="@color/white" />
+
+    <ImageButton
+        android:id="@+id/pulauSulawesi"
+        android:layout_width="370dp"
+        android:layout_height="424dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginBottom="-41dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_sulawesi"
+        app:layout_constraintBottom_toBottomOf="@id/pulauKalimantan"
+        app:layout_constraintStart_toEndOf="@id/pulauKalimantan" />
+
+    <ImageView
+        android:id="@+id/markerSulawesi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="200dp"
+        android:layout_marginBottom="150dp"
+        android:src="@drawable/ic_outline_place_64"
+        app:layout_constraintBottom_toBottomOf="@id/pulauSulawesi"
+        app:layout_constraintEnd_toEndOf="@id/pulauSulawesi"
+        app:layout_constraintStart_toStartOf="@id/pulauSulawesi"
+        app:layout_constraintTop_toTopOf="@id/pulauSulawesi"
+        app:tint="@color/white" />
+
+    <ImageButton
+        android:id="@+id/pulauMaluku"
+        android:layout_width="284dp"
+        android:layout_height="357dp"
+        android:layout_marginTop="105dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_maluku"
+        app:layout_constraintStart_toEndOf="@id/pulauSulawesi"
+        app:layout_constraintTop_toTopOf="@id/pulauSulawesi" />
+
+    <ImageView
+        android:id="@+id/markerMaluku"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="220dp"
+        android:src="@drawable/ic_outline_place_64"
+        app:layout_constraintBottom_toBottomOf="@id/pulauMaluku"
+        app:layout_constraintEnd_toEndOf="@id/pulauMaluku"
+        app:layout_constraintStart_toStartOf="@id/pulauMaluku"
+        app:layout_constraintTop_toTopOf="@id/pulauMaluku"
+        app:tint="@color/white" />
+
+    <ImageButton
+        android:id="@+id/pulauPapua"
+        android:layout_width="520dp"
+        android:layout_height="476dp"
+        android:layout_marginTop="11dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_papua"
+        app:layout_constraintStart_toEndOf="@id/pulauMaluku"
+        app:layout_constraintTop_toTopOf="@id/pulauMaluku" />
+
+    <ImageView
+        android:id="@+id/markerPapua"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="96dp"
+        android:layout_marginBottom="96dp"
+        android:src="@drawable/ic_outline_place_64"
+        app:layout_constraintBottom_toBottomOf="@id/pulauPapua"
+        app:layout_constraintEnd_toEndOf="@id/pulauPapua"
+        app:layout_constraintStart_toStartOf="@id/pulauPapua"
+        app:layout_constraintTop_toTopOf="@id/pulauPapua"
+        app:tint="@color/white" />
+
+    <TextView
+        android:id="@+id/tvLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="62dp"
+        android:fontFamily="@font/neutro_extrabold"
+        android:text="Jendela Jelajah \nKekayaan Indonesia"
+        android:textColor="@color/not_white"
+        android:textSize="46sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/head_banner" />
+
+    <ImageButton
+        android:id="@+id/fabLanguage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:padding="16dp"
+        android:layout_marginVertical="24dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/bg_btn_language"
+        android:clickable="true"
+        android:contentDescription="@string/ubah_bahasa"
+        android:elevation="3dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_baseline_language_24dp_black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
