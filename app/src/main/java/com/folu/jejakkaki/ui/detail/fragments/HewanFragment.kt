@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import com.folu.jejakkaki.R
 import com.folu.jejakkaki.adapter.CarouselAdapter
@@ -32,7 +33,12 @@ class HewanFragment : Fragment() {
         selectedTaman?.let { taman ->
             val animals = taman.animals.filterNotNull()
             val carouselItems = animals.map { Pair(it.pic, getColorResId(it.id)) }
-            carouselAdapter = CarouselAdapter(carouselItems)
+
+            val carouselAdapter = CarouselAdapter(carouselItems) { imageResId ->
+                val dialog = ImageDialogFragment.newInstance(imageResId)
+                dialog.setStyle(DialogFragment.STYLE_NORMAL, R.style.CustomDialogTheme)
+                dialog.show(parentFragmentManager, "ImageDialogFragment")
+            }
             binding.carousel.adapter = carouselAdapter
             binding.carousel.apply {
                 setInfinite(true)

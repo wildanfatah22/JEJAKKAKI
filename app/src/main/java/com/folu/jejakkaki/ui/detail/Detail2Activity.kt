@@ -14,12 +14,14 @@ import com.folu.jejakkaki.R
 import com.folu.jejakkaki.adapter.SectionsPagerAdapter
 import com.folu.jejakkaki.databinding.ActivityDetail2Binding
 import com.folu.jejakkaki.model.TamanData
+import com.folu.jejakkaki.ui.detail.fragments.ImageDialogFragment
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
 class Detail2Activity : AppCompatActivity() {
     private lateinit var binding: ActivityDetail2Binding
     private var id: Int = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetail2Binding.inflate(layoutInflater)
@@ -61,14 +63,17 @@ class Detail2Activity : AppCompatActivity() {
         val tabs: TabLayout = binding.tabLayout
         TabLayoutMediator(tabs, viewPager) { tab, position ->
             val tabView = LayoutInflater.from(this).inflate(R.layout.tab_title, tabs, false)
-            tabView.findViewById<ImageView>(R.id.tab_icon).setImageResource(icons[position])
+            val imageView = tabView.findViewById<ImageView>(R.id.tab_icon)
+            imageView.setImageResource(icons[position])
+            imageView.setOnClickListener {
+                val dialog = ImageDialogFragment.newInstance(icons[position])
+                dialog.show(supportFragmentManager, "ImageDialogFragment")
+            }
             tab.customView = tabView
         }.attach()
 
-
         tabs.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
-            override fun onTabReselected(tab: TabLayout.Tab?) {
-            }
+            override fun onTabReselected(tab: TabLayout.Tab?) {}
 
             override fun onTabUnselected(tab: TabLayout.Tab?) {
                 val tabView = tab?.customView
@@ -120,5 +125,4 @@ class Detail2Activity : AppCompatActivity() {
             R.drawable.ic_la_hiking_40,
         )
     }
-
 }

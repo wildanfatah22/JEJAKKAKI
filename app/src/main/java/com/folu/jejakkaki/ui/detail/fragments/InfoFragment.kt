@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import com.folu.jejakkaki.R
 import com.folu.jejakkaki.adapter.CarouselAdapter
@@ -42,7 +43,11 @@ class InfoFragment : Fragment() {
                 taman.car3?.let { Pair(it, R.color.green) }
             )
 
-            val carouselAdapter = CarouselAdapter(carouselItems)
+            val carouselAdapter = CarouselAdapter(carouselItems) { imageResId ->
+                val dialog = ImageDialogFragment.newInstance(imageResId)
+                dialog.setStyle(DialogFragment.STYLE_NORMAL, R.style.CustomDialogTheme)
+                dialog.show(parentFragmentManager, "ImageDialogFragment")
+            }
             binding.carousel.adapter = carouselAdapter
             binding.carousel.apply {
                 setInfinite(true)

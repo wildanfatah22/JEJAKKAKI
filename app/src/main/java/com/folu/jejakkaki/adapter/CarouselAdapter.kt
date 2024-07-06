@@ -7,8 +7,10 @@ import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.folu.jejakkaki.R
 
-class CarouselAdapter(private val itemList: List<Pair<Int, Int>>) :
-    RecyclerView.Adapter<CarouselAdapter.CarouselViewHolder>() {
+class CarouselAdapter(
+    private val itemList: List<Pair<Int, Int>>,
+    private val itemClickListener: (Int) -> Unit
+) : RecyclerView.Adapter<CarouselAdapter.CarouselViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CarouselViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_carousel, parent, false)
@@ -29,6 +31,9 @@ class CarouselAdapter(private val itemList: List<Pair<Int, Int>>) :
         fun bind(imageResId: Int, colorResId: Int) {
             imageView.setImageResource(imageResId)
             view.setBackgroundColor(itemView.context.getColor(colorResId))
+            itemView.setOnClickListener {
+                itemClickListener(imageResId)
+            }
         }
     }
 }
