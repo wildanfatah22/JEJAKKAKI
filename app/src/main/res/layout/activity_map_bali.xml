@@ -69,7 +69,7 @@
         <ImageView
             android:id="@+id/ivPulau"
             android:layout_width="1945dp"
-            android:layout_height="386dp"
+            android:layout_height="400dp"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
             android:src="@drawable/ic_bali"
