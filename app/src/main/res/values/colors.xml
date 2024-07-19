@@ -19,4 +19,6 @@
     <color name="green">#59867E</color>
     <color name="yellow">#F3C125</color>
     <color name="offwhite">#E6E2CF</color>
+    <color name="semi_transparent_black">#80000000</color>
+
 </resources>

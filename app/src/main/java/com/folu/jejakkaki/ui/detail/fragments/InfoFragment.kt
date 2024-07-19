@@ -1,14 +1,17 @@
 package com.folu.jejakkaki.ui.detail.fragments
 
+import android.app.Dialog
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import com.folu.jejakkaki.R
 import com.folu.jejakkaki.adapter.CarouselAdapter
+import com.folu.jejakkaki.databinding.DialogImageBinding
 import com.folu.jejakkaki.databinding.FragmentInfoBinding
 import com.folu.jejakkaki.model.TamanData
 
@@ -44,9 +47,7 @@ class InfoFragment : Fragment() {
             )
 
             val carouselAdapter = CarouselAdapter(carouselItems) { imageResId ->
-                val dialog = ImageDialogFragment.newInstance(imageResId)
-                dialog.setStyle(DialogFragment.STYLE_NORMAL, R.style.CustomDialogTheme)
-                dialog.show(parentFragmentManager, "ImageDialogFragment")
+                showImageDialog(imageResId)
             }
             binding.carousel.adapter = carouselAdapter
             binding.carousel.apply {
@@ -55,6 +56,15 @@ class InfoFragment : Fragment() {
                 setIntervalRatio(0.5f)
             }
         }
+    }
+
+    private fun showImageDialog(imageResId: Int) {
+        val dialog = Dialog(requireContext())
+        val dialogBinding = DialogImageBinding.inflate(layoutInflater)
+        dialogBinding.imageViewDialog.setImageResource(imageResId)
+        dialog.setContentView(dialogBinding.root)
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+        dialog.show()
     }
 
     override fun onDestroyView() {

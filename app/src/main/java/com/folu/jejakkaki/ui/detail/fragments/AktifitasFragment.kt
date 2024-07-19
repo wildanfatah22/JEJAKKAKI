@@ -1,13 +1,16 @@
 package com.folu.jejakkaki.ui.detail.fragments
 
+import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import com.folu.jejakkaki.R
 import com.folu.jejakkaki.adapter.CarouselAdapter
+import com.folu.jejakkaki.databinding.DialogImageBinding
 import com.folu.jejakkaki.databinding.FragmentAktifitasBinding
 import com.folu.jejakkaki.model.TamanData
 import com.jackandphantom.carouselrecyclerview.CarouselLayoutManager
@@ -35,10 +38,8 @@ class AktifitasFragment : Fragment() {
             val activities = taman.activities.filterNotNull()
             val carouselItems = activities.map { Pair(it.pic, getColorResId(it.id)) }
 
-            val carouselAdapter = CarouselAdapter(carouselItems) { imageResId ->
-                val dialog = ImageDialogFragment.newInstance(imageResId)
-                dialog.setStyle(DialogFragment.STYLE_NORMAL, R.style.CustomDialogTheme)
-                dialog.show(parentFragmentManager, "ImageDialogFragment")
+            carouselAdapter = CarouselAdapter(carouselItems) { imageResId ->
+                showImageDialog(imageResId)
             }
             binding.carousel.adapter = carouselAdapter
             binding.carousel.apply {
@@ -50,10 +51,8 @@ class AktifitasFragment : Fragment() {
             val currentPosition = binding.carousel.getSelectedPosition()
             updateCaption(currentPosition)
 
-            // Add an OnScrollListener to track changes in the carousel position
             binding.carousel.setItemSelectListener(object : CarouselLayoutManager.OnSelected {
                 override fun onItemSelected(position: Int) {
-                    // Update the caption when the carousel position changes
                     updateCaption(position)
                 }
             })
@@ -67,7 +66,7 @@ class AktifitasFragment : Fragment() {
             3 -> R.color.green
             4 -> R.color.yellow
             5 -> R.color.offwhite
-            else -> R.color.red // Default color
+            else -> R.color.red
         }
     }
 
@@ -76,6 +75,15 @@ class AktifitasFragment : Fragment() {
         val aktifitas = taman?.activities?.getOrNull(position)
         val captionText = aktifitas?.desc?.let { getString(it) } ?: ""
         binding.caption.text = captionText
+    }
+
+    private fun showImageDialog(imageResId: Int) {
+        val dialog = Dialog(requireContext())
+        val dialogBinding = DialogImageBinding.inflate(layoutInflater)
+        dialogBinding.imageViewDialog.setImageResource(imageResId)
+        dialog.setContentView(dialogBinding.root)
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+        dialog.show()
     }
 
     override fun onDestroyView() {

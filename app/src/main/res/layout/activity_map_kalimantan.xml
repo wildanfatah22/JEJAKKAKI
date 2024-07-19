@@ -69,8 +69,8 @@
 
         <ImageView
             android:id="@+id/ivPulau"
-            android:layout_width="1109dp"
-            android:layout_height="908dp"
+            android:layout_width="1110dp"
+            android:layout_height="930dp"
             android:layout_marginBottom="94dp"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
