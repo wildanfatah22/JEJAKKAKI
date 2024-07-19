@@ -4,6 +4,23 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnBack"
+        android:layout_width="342dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="98dp"
+        android:background="@android:color/transparent"
+        android:fontFamily="@font/syne_bold"
+        android:text="@string/tutup"
+        android:textColor="@color/white"
+        android:textAlignment="viewStart"
+        android:textSize="48sp"
+        app:icon="@drawable/ic_cross"
+        app:iconGravity="start"
+        app:iconSize="64dp"
+        app:layout_constraintStart_toStartOf="@id/imageView"
+        app:layout_constraintTop_toTopOf="@id/imageView" />
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
