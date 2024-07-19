@@ -33,10 +33,10 @@
             android:contentDescription="logo_java_jazz_festival"
             android:scaleType="centerInside"
             android:src="@drawable/logo_jjf_white"
-            app:layout_constraintBottom_toBottomOf="@id/head_banner"
+            app:layout_constraintBottom_toBottomOf="@id/left_icon"
             app:layout_constraintEnd_toEndOf="@id/head_banner"
             app:layout_constraintStart_toStartOf="@id/head_banner"
-            app:layout_constraintTop_toTopOf="@id/head_banner" />
+            app:layout_constraintTop_toTopOf="@id/left_icon" />
 
         <ImageView
             android:id="@+id/left_icon"
