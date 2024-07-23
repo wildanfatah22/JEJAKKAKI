@@ -152,6 +152,7 @@ class MapSumatraActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
+        super.onBackPressed()
         finish()
     }
 }

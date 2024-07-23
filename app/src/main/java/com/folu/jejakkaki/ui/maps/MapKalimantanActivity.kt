@@ -147,6 +147,7 @@ class MapKalimantanActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
+        super.onBackPressed()
         finish()
     }
 }

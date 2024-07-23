@@ -151,6 +151,7 @@ class MapJawaActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
+        super.onBackPressed()
         finish()
     }
 }

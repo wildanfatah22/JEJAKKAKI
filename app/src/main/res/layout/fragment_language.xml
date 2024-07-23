@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="600dp"
     android:layout_height="400dp"
-    android:background="@color/red"
+    android:background="@color/blue"
     tools:context=".ui.LanguageFragment">
 
     <TextView
@@ -50,7 +50,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginBottom="30dp"
         android:background="@drawable/bg_btn_language"
-        android:drawableStart="@drawable/flag_usa"
+        android:drawableStart="@drawable/flag_english"
         android:padding="25dp"
         android:text="@string/inggris"
         android:textAllCaps="false"

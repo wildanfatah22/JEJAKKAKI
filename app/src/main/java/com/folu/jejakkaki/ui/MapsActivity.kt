@@ -172,9 +172,9 @@ class MapsActivity : AppCompatActivity() {
     private fun setFabIconBasedOnLanguage(language: String) {
         when (language) {
             "in" -> fab.setImageResource(R.drawable.flag_id)
-            "en" -> fab.setImageResource(R.drawable.flag_usa)
+            "en" -> fab.setImageResource(R.drawable.flag_english)
             // Add more cases for other languages if needed
-            else -> fab.setImageResource(R.drawable.flag_usa) // Default to English
+            else -> fab.setImageResource(R.drawable.flag_english) // Default to English
         }
     }
 

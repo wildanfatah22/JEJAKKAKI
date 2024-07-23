@@ -146,6 +146,7 @@ class MapBaliActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
+        super.onBackPressed()
         finish()
     }
 }

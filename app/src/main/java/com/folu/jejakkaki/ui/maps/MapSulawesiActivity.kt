@@ -149,6 +149,7 @@ class MapSulawesiActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
+        super.onBackPressed()
         finish()
     }
 }
