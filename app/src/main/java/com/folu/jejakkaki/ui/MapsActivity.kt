@@ -38,11 +38,11 @@ class MapsActivity : AppCompatActivity() {
     private lateinit var fab: ImageButton
     private lateinit var binding: ActivityMapsBinding
     private val bounceDurations = listOf(1000L, 1500L, 1200L, 2000L, 1800L, 1700L, 1900L)
-    private val idleTimeout: Long = 3 * 60 * 1000 // 3 minutes
-    private val handler = Handler(Looper.getMainLooper())
-    private val runnable = Runnable {
-        startVideoActivity()
-    }
+//    private val idleTimeout: Long = 3 * 60 * 1000 // 3 minutes
+//    private val handler = Handler(Looper.getMainLooper())
+//    private val runnable = Runnable {
+//        startVideoActivity()
+//    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,7 +50,7 @@ class MapsActivity : AppCompatActivity() {
         binding = ActivityMapsBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-        startHandler()
+//        startHandler()
         hideSystemUI()
         fab = binding.fabLanguage
 
@@ -71,32 +71,32 @@ class MapsActivity : AppCompatActivity() {
     }
 
     override fun onTouchEvent(event: MotionEvent?): Boolean {
-        resetHandler() // Reset the idle timer on user interaction
+//        resetHandler() // Reset the idle timer on user interaction
         return super.onTouchEvent(event)
     }
 
-    private fun startHandler() {
-        handler.postDelayed(runnable, idleTimeout)
-    }
-
-    private fun resetHandler() {
-        handler.removeCallbacks(runnable)
-        handler.postDelayed(runnable, idleTimeout)
-    }
-
-    private fun startVideoActivity() {
-        val intent = Intent(this, VideoActivity::class.java)
-        startActivity(intent)
-    }
+//    private fun startHandler() {
+//        handler.postDelayed(runnable, idleTimeout)
+//    }
+//
+//    private fun resetHandler() {
+//        handler.removeCallbacks(runnable)
+//        handler.postDelayed(runnable, idleTimeout)
+//    }
+//
+//    private fun startVideoActivity() {
+//        val intent = Intent(this, VideoActivity::class.java)
+//        startActivity(intent)
+//    }
 
     override fun onResume() {
         super.onResume()
-        resetHandler()
+//        resetHandler()
     }
 
     override fun onPause() {
         super.onPause()
-        handler.removeCallbacks(runnable)
+//        handler.removeCallbacks(runnable)
     }
 
     override fun onDestroy() {
