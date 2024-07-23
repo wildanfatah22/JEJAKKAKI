@@ -1,12 +1,10 @@
 package com.folu.jejakkaki.adapter
 
-import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.folu.jejakkaki.ui.detail.fragments.AktifitasFragment
-import com.folu.jejakkaki.ui.detail.fragments.HewanFragment
-import com.folu.jejakkaki.ui.detail.fragments.InfoFragment
+import com.folu.jejakkaki.ui.detail.fragments.Detail2Fragment
+import com.folu.jejakkaki.ui.detail.fragments.FragmentType
 
 class SectionsPagerAdapter(fragment: FragmentActivity, private val id: Int) :
     FragmentStateAdapter(fragment) {
@@ -16,16 +14,11 @@ class SectionsPagerAdapter(fragment: FragmentActivity, private val id: Int) :
     }
 
     override fun createFragment(position: Int): Fragment {
-        val fragment: Fragment = when (position) {
-            0 -> InfoFragment()
-            1 -> HewanFragment()
-            else -> AktifitasFragment()
+        val fragmentType = when (position) {
+            0 -> FragmentType.INFO
+            1 -> FragmentType.ANIMALS
+            else -> FragmentType.ACTIVITIES
         }
-
-        fragment.arguments = Bundle().apply {
-            putInt("id", id)
-        }
-
-        return fragment
+        return Detail2Fragment.newInstance(id, fragmentType)
     }
 }

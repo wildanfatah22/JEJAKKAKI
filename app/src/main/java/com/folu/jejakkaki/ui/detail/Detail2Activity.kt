@@ -25,13 +25,10 @@ class Detail2Activity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetail2Binding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
+        setContentView(binding.root)
         hideSystemUI()
 
-        val backButton = binding.btnBack
-
-        backButton.setOnClickListener {
+        binding.btnBack.setOnClickListener {
             onBackPressedDispatcher.onBackPressed()
         }
 
@@ -41,34 +38,32 @@ class Detail2Activity : AppCompatActivity() {
     }
 
     private fun showTaman(id: Int) {
-        val selectedTaman = TamanData.taman.find { it.id == id }
-        if (selectedTaman != null) {
-            binding.ivLogo.setImageResource(selectedTaman.logo)
-            binding.ivBg.setImageResource(selectedTaman.bgPic)
-            binding.tvNamaTaman.text = selectedTaman.namaTaman
+        TamanData.taman.find { it.id == id }?.let { selectedTaman ->
+            binding.apply {
+                ivLogo.setImageResource(selectedTaman.logo)
+                ivBg.setImageResource(selectedTaman.bgPic)
+                tvNamaTaman.text = selectedTaman.namaTaman
 
-            if (selectedTaman.logo2 != null) {
-                binding.ivLogo2.setImageResource(selectedTaman.logo2)
-                binding.ivLogo2.visibility = View.VISIBLE
+                selectedTaman.logo2?.let {
+                    ivLogo2.setImageResource(it)
+                    ivLogo2.visibility = View.VISIBLE
+                }
             }
         }
     }
 
     private fun setUpTabLayoutWithViewPager() {
-        val icons = ArrayList(TAB_ICONS)
         val sectionsPagerAdapter = SectionsPagerAdapter(this, id)
-        val viewPager: ViewPager2 = binding.viewPager
-        viewPager.adapter = sectionsPagerAdapter
-        viewPager.isUserInputEnabled = false
+        binding.viewPager.apply {
+            adapter = sectionsPagerAdapter
+            isUserInputEnabled = false
+        }
+
         val tabs: TabLayout = binding.tabLayout
-        TabLayoutMediator(tabs, viewPager) { tab, position ->
+        TabLayoutMediator(tabs, binding.viewPager) { tab, position ->
             val tabView = LayoutInflater.from(this).inflate(R.layout.tab_title, tabs, false)
             val imageView = tabView.findViewById<ImageView>(R.id.tab_icon)
-            imageView.setImageResource(icons[position])
-            imageView.setOnClickListener {
-                val dialog = ImageDialogFragment.newInstance(icons[position])
-                dialog.show(supportFragmentManager, "ImageDialogFragment")
-            }
+            imageView.setImageResource(TAB_ICONS[position])
             tab.customView = tabView
         }.attach()
 
@@ -76,35 +71,36 @@ class Detail2Activity : AppCompatActivity() {
             override fun onTabReselected(tab: TabLayout.Tab?) {}
 
             override fun onTabUnselected(tab: TabLayout.Tab?) {
-                val tabView = tab?.customView
-                val icon = tabView?.findViewById<ImageView>(R.id.tab_icon)
-                icon?.scaleX = 1.0f
-                icon?.scaleY = 1.0f
+                tab?.customView?.findViewById<ImageView>(R.id.tab_icon)?.apply {
+                    scaleX = 1.0f
+                    scaleY = 1.0f
+                }
             }
 
             override fun onTabSelected(tab: TabLayout.Tab?) {
-                val tabView = tab?.customView
-                val icon = tabView?.findViewById<ImageView>(R.id.tab_icon)
-                icon?.scaleX = 1.2f // Scale factor for X axis
-                icon?.scaleY = 1.2f // Scale factor for Y axis
+                tab?.customView?.findViewById<ImageView>(R.id.tab_icon)?.apply {
+                    scaleX = 1.6f
+                    scaleY = 1.6f
+                }
             }
         })
-        tabs.selectTab(tabs.getTabAt(0))
-        scaleTabIcon(tabs.getTabAt(0))
+
+        // Set the first tab icon to be larger initially
+        tabs.getTabAt(0)?.let { scaleTabIcon(it) }
     }
 
-    private fun scaleTabIcon(tab: TabLayout.Tab?) {
-        val tabView = tab?.customView
-        val icon = tabView?.findViewById<ImageView>(R.id.tab_icon)
-        icon?.scaleX = 1.2f // Scale factor for X axis
-        icon?.scaleY = 1.2f // Scale factor for Y axis
+    private fun scaleTabIcon(tab: TabLayout.Tab) {
+        tab.customView?.findViewById<ImageView>(R.id.tab_icon)?.apply {
+            scaleX = 1.6f
+            scaleY = 1.6f
+        }
     }
 
     private fun hideSystemUI() {
-        @Suppress("DEPRECATION")
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             window.insetsController?.hide(WindowInsets.Type.statusBars())
         } else {
+            @Suppress("DEPRECATION")
             window.setFlags(
                 WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN
@@ -114,6 +110,7 @@ class Detail2Activity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
+        super.onBackPressed()
         finish()
     }
 
