@@ -1,15 +1,12 @@
 package com.folu.jejakkaki.ui.detail.fragments
 
-import android.app.Dialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.WindowManager
 import com.folu.jejakkaki.R
 import com.folu.jejakkaki.adapter.CarouselAdapter
-import com.folu.jejakkaki.databinding.DialogImageBinding
 import com.folu.jejakkaki.databinding.FragmentDetail2Binding
 import com.folu.jejakkaki.model.TamanData
 import com.jackandphantom.carouselrecyclerview.CarouselLayoutManager
@@ -96,12 +93,8 @@ class Detail2Fragment : Fragment() {
     }
 
     private fun showImageDialog(imageResId: Int) {
-        val dialog = Dialog(requireContext())
-        val dialogBinding = DialogImageBinding.inflate(layoutInflater)
-        dialogBinding.imageViewDialog.setImageResource(imageResId)
-        dialog.setContentView(dialogBinding.root)
-        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
-        dialog.show()
+        val dialogFragment = ImageDialogFragment.newInstance(imageResId)
+        dialogFragment.show(parentFragmentManager, "image_dialog")
     }
 
     override fun onDestroyView() {

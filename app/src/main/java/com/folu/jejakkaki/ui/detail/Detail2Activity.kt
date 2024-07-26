@@ -111,6 +111,11 @@ class Detail2Activity : AppCompatActivity() {
         finish()
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        // Cleanup resources if necessary
+    }
+
     companion object {
         @StringRes
         internal val TAB_ICONS = arrayListOf(
