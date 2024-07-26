@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.util.Pair
+import androidx.lifecycle.lifecycleScope
 import com.folu.jejakkaki.R
 import com.folu.jejakkaki.databinding.ActivityMapsBinding
 import com.folu.jejakkaki.ui.maps.MapBaliActivity
@@ -50,7 +51,7 @@ class MapsActivity : AppCompatActivity() {
         binding = ActivityMapsBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-//        startHandler()
+        //startHandler()
         hideSystemUI()
         fab = binding.fabLanguage
 
@@ -70,11 +71,11 @@ class MapsActivity : AppCompatActivity() {
         }
     }
 
-    override fun onTouchEvent(event: MotionEvent?): Boolean {
+//    override fun onTouchEvent(event: MotionEvent?): Boolean {
 //        resetHandler() // Reset the idle timer on user interaction
-        return super.onTouchEvent(event)
-    }
-
+//        return super.onTouchEvent(event)
+//    }
+//
 //    private fun startHandler() {
 //        handler.postDelayed(runnable, idleTimeout)
 //    }
@@ -89,15 +90,15 @@ class MapsActivity : AppCompatActivity() {
 //        startActivity(intent)
 //    }
 
-    override fun onResume() {
-        super.onResume()
+//    override fun onResume() {
+//        super.onResume()
 //        resetHandler()
-    }
-
-    override fun onPause() {
-        super.onPause()
+//    }
+//
+//    override fun onPause() {
+//        super.onPause()
 //        handler.removeCallbacks(runnable)
-    }
+//    }
 
     override fun onDestroy() {
         super.onDestroy()
@@ -116,9 +117,7 @@ class MapsActivity : AppCompatActivity() {
 
         val render = Render(this)
 
-        val scope = CoroutineScope(Dispatchers.Main)
-
-        scope.launch {
+        lifecycleScope.launch(Dispatchers.Main) {
             while (isActive) {
                 markerViews.forEachIndexed { index, view ->
                     // Bounce animation
@@ -130,7 +129,7 @@ class MapsActivity : AppCompatActivity() {
             }
         }
 
-        scope.launch {
+        lifecycleScope.launch(Dispatchers.Main) {
             while (isActive) {
                 render.setAnimation(Fade().Out(binding.tvLogo))
                 render.start()
@@ -173,8 +172,7 @@ class MapsActivity : AppCompatActivity() {
         when (language) {
             "in" -> fab.setImageResource(R.drawable.flag_id)
             "en" -> fab.setImageResource(R.drawable.flag_english)
-            // Add more cases for other languages if needed
-            else -> fab.setImageResource(R.drawable.flag_english) // Default to English
+            else -> fab.setImageResource(R.drawable.flag_english) // Default
         }
     }
 
@@ -190,7 +188,6 @@ class MapsActivity : AppCompatActivity() {
         }
         supportActionBar?.hide()
     }
-
 
     companion object {
         private const val TAG = "MapsActivity"

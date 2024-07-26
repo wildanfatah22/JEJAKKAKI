@@ -101,9 +101,6 @@ class Detail2Fragment : Fragment() {
         dialogBinding.imageViewDialog.setImageResource(imageResId)
         dialog.setContentView(dialogBinding.root)
         dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
-        val layoutParams = dialog.window?.attributes
-        layoutParams?.dimAmount = 0.5f // Adjust the dim amount as needed
-        dialog.window?.addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
         dialog.show()
     }
 

@@ -9,12 +9,10 @@ import android.view.WindowManager
 import android.widget.ImageView
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
-import androidx.viewpager2.widget.ViewPager2
 import com.folu.jejakkaki.R
 import com.folu.jejakkaki.adapter.SectionsPagerAdapter
 import com.folu.jejakkaki.databinding.ActivityDetail2Binding
 import com.folu.jejakkaki.model.TamanData
-import com.folu.jejakkaki.ui.detail.fragments.ImageDialogFragment
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
@@ -85,7 +83,6 @@ class Detail2Activity : AppCompatActivity() {
             }
         })
 
-        // Set the first tab icon to be larger initially
         tabs.getTabAt(0)?.let { scaleTabIcon(it) }
     }
 

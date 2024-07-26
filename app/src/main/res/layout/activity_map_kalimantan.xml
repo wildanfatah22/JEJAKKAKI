@@ -33,7 +33,7 @@
             android:layout_gravity="center"
             android:contentDescription="logo_java_jazz_festival"
             android:scaleType="centerInside"
-            android:src="@drawable/logo_jjf_white"
+            android:src="@drawable/logo_like"
             app:layout_constraintBottom_toBottomOf="@id/head_banner"
             app:layout_constraintEnd_toEndOf="@id/head_banner"
             app:layout_constraintStart_toStartOf="@id/head_banner"
@@ -48,7 +48,7 @@
             android:background="@android:color/transparent"
             android:contentDescription="@string/klhk"
             android:scaleType="centerInside"
-            android:src="@drawable/ic_klhk"
+            android:src="@drawable/logo_klhk"
             app:layout_constraintBottom_toBottomOf="@id/head_banner"
             app:layout_constraintStart_toStartOf="@id/head_banner"
             app:layout_constraintTop_toTopOf="@id/head_banner" />
@@ -62,7 +62,7 @@
             android:background="@android:color/transparent"
             android:contentDescription="Back"
             android:scaleType="fitCenter"
-            android:src="@drawable/ic_folunet"
+            android:src="@drawable/logo_folu"
             app:layout_constraintBottom_toBottomOf="@id/head_banner"
             app:layout_constraintEnd_toEndOf="@id/head_banner"
             app:layout_constraintTop_toTopOf="@id/head_banner" />
