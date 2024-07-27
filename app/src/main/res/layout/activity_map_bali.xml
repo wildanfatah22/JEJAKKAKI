@@ -66,97 +66,6 @@
             app:layout_constraintEnd_toEndOf="@id/head_banner"
             app:layout_constraintTop_toTopOf="@id/head_banner" />
 
-        <ImageButton
-            android:id="@+id/placeButton1"
-            android:layout_width="54dp"
-            android:layout_height="54dp"
-            android:layout_marginEnd="1908dp"
-            android:layout_marginBottom="363dp"
-            android:background="@android:color/transparent"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_outline_place_48"
-            android:tag="40"
-            app:layout_constraintBottom_toBottomOf="@id/ivPulau"
-            app:layout_constraintEnd_toEndOf="@id/ivPulau" />
-
-        <ImageButton
-            android:id="@+id/placeButton2"
-            android:layout_width="54dp"
-            android:layout_height="54dp"
-            android:layout_marginStart="315dp"
-            android:layout_marginTop="18dp"
-            android:background="@android:color/transparent"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_outline_place_48"
-            android:tag="41"
-            app:layout_constraintStart_toStartOf="@id/ivPulau"
-            app:layout_constraintTop_toTopOf="@id/ivPulau" />
-
-        <ImageButton
-            android:id="@+id/placeButton3"
-            android:layout_width="54dp"
-            android:layout_height="54dp"
-            android:layout_marginEnd="1308dp"
-            android:layout_marginBottom="335dp"
-            android:background="@android:color/transparent"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_outline_place_48"
-            android:tag="46"
-            app:layout_constraintBottom_toBottomOf="@id/ivPulau"
-            app:layout_constraintEnd_toEndOf="@id/ivPulau" />
-
-        <ImageButton
-            android:id="@+id/placeButton4"
-            android:layout_width="54dp"
-            android:layout_height="54dp"
-            android:layout_marginStart="851dp"
-            android:layout_marginTop="45dp"
-            android:background="@android:color/transparent"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_outline_place_48"
-            android:tag="42"
-            app:layout_constraintStart_toStartOf="@id/ivPulau"
-            app:layout_constraintTop_toTopOf="@id/ivPulau" />
-
-        <ImageButton
-            android:id="@+id/placeButton5"
-            android:layout_width="54dp"
-            android:layout_height="54dp"
-            android:layout_marginStart="865dp"
-            android:layout_marginTop="221dp"
-            android:background="@android:color/transparent"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_outline_place_48"
-            android:tag="43"
-            app:layout_constraintStart_toStartOf="@id/ivPulau"
-            app:layout_constraintTop_toTopOf="@id/ivPulau" />
-
-        <ImageButton
-            android:id="@+id/placeButton6"
-            android:layout_width="54dp"
-            android:layout_height="54dp"
-            android:layout_marginStart="940dp"
-            android:layout_marginTop="282dp"
-            android:background="@android:color/transparent"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_outline_place_48"
-            android:tag="44"
-            app:layout_constraintStart_toStartOf="@id/ivPulau"
-            app:layout_constraintTop_toTopOf="@id/ivPulau" />
-
-        <ImageButton
-            android:id="@+id/placeButton7"
-            android:layout_width="54dp"
-            android:layout_height="54dp"
-            android:layout_marginStart="1290dp"
-            android:layout_marginTop="73dp"
-            android:background="@android:color/transparent"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_outline_place_48"
-            android:tag="45"
-            app:layout_constraintStart_toStartOf="@id/ivPulau"
-            app:layout_constraintTop_toTopOf="@id/ivPulau" />
-
         <ImageView
             android:id="@+id/ivPulau"
             android:layout_width="1945dp"
@@ -169,6 +78,100 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/head_banner" />
+
+        <ImageButton
+            android:id="@+id/placeButton1"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:layout_marginEnd="1880dp"
+            android:layout_marginBottom="120dp"
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_outline_place_48"
+            android:tag="40"
+            app:layout_constraintTop_toTopOf="@id/ivPulau"
+            app:layout_constraintBottom_toBottomOf="@id/ivPulau"
+            app:layout_constraintEnd_toEndOf="@id/ivPulau" />
+
+        <ImageButton
+            android:id="@+id/placeButton2"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:layout_marginStart="315dp"
+            android:layout_marginTop="150dp"
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_outline_place_48"
+            android:tag="41"
+            app:layout_constraintStart_toStartOf="@id/ivPulau"
+            app:layout_constraintTop_toTopOf="@id/ivPulau" />
+
+        <ImageButton
+            android:id="@+id/placeButton3"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:layout_marginEnd="1270dp"
+            android:layout_marginBottom="230dp"
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_outline_place_48"
+            android:tag="46"
+            app:layout_constraintBottom_toBottomOf="@id/ivPulau"
+            app:layout_constraintEnd_toEndOf="@id/ivPulau" />
+
+        <ImageButton
+            android:id="@+id/placeButton4"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:layout_marginStart="910dp"
+            android:layout_marginTop="160dp"
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_outline_place_48"
+            android:tag="42"
+            app:layout_constraintStart_toStartOf="@id/ivPulau"
+            app:layout_constraintTop_toTopOf="@id/ivPulau" />
+
+        <ImageButton
+            android:id="@+id/placeButton5"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:layout_marginStart="870dp"
+            android:layout_marginTop="245dp"
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_outline_place_48"
+            android:tag="43"
+            app:layout_constraintStart_toStartOf="@id/ivPulau"
+            app:layout_constraintTop_toTopOf="@id/ivPulau" />
+
+        <ImageButton
+            android:id="@+id/placeButton6"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:layout_marginStart="955dp"
+            android:layout_marginTop="270dp"
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_outline_place_48"
+            android:tag="44"
+            app:layout_constraintStart_toStartOf="@id/ivPulau"
+            app:layout_constraintTop_toTopOf="@id/ivPulau" />
+
+        <ImageButton
+            android:id="@+id/placeButton7"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:layout_marginStart="1290dp"
+            android:layout_marginTop="165dp"
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_outline_place_48"
+            android:tag="45"
+            app:layout_constraintStart_toStartOf="@id/ivPulau"
+            app:layout_constraintTop_toTopOf="@id/ivPulau" />
+
+
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnBack"
