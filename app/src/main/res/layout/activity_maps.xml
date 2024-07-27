@@ -2,14 +2,15 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:keepScreenOn="true"
     android:layout_height="match_parent"
-    android:background="@color/not_black">
+    android:background="@color/not_black"
+    android:keepScreenOn="true">
 
-    <com.google.android.material.imageview.ShapeableImageView
+    <include
         android:id="@+id/head_banner"
+        layout="@layout/item_topbar"
         android:layout_width="match_parent"
-        android:layout_height="172dp"
+        android:layout_height="wrap_content"
         android:layout_marginHorizontal="98dp"
         android:adjustViewBounds="true"
         android:background="@drawable/map_rectangle"
@@ -18,47 +19,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:shapeAppearanceOverlay="@style/customRoundedImageView" />
-
-    <ImageView
-        android:id="@+id/middle_icon"
-        android:layout_width="137dp"
-        android:layout_height="96dp"
-        android:layout_gravity="center"
-        android:contentDescription="logo_java_jazz_festival"
-        android:scaleType="centerInside"
-        android:src="@drawable/logo_like"
-        app:layout_constraintBottom_toBottomOf="@id/head_banner"
-        app:layout_constraintEnd_toEndOf="@id/head_banner"
-        app:layout_constraintStart_toStartOf="@id/head_banner"
-        app:layout_constraintTop_toTopOf="@id/head_banner" />
-
-    <ImageView
-        android:id="@+id/left_icon"
-        android:layout_width="280dp"
-        android:layout_height="96dp"
-        android:layout_gravity="start|center_vertical"
-        android:layout_marginStart="44dp"
-        android:background="@android:color/transparent"
-        android:contentDescription="@string/klhk"
-        android:scaleType="centerInside"
-        android:src="@drawable/logo_klhk"
-        app:layout_constraintBottom_toBottomOf="@id/head_banner"
-        app:layout_constraintStart_toStartOf="@id/head_banner"
-        app:layout_constraintTop_toTopOf="@id/head_banner" />
-
-    <ImageView
-        android:id="@+id/right_icon"
-        android:layout_width="302dp"
-        android:layout_height="96dp"
-        android:layout_gravity="end|center_vertical"
-        android:layout_marginEnd="44dp"
-        android:background="@android:color/transparent"
-        android:contentDescription="Back"
-        android:scaleType="fitCenter"
-        android:src="@drawable/logo_folu"
-        app:layout_constraintBottom_toBottomOf="@id/middle_icon"
-        app:layout_constraintEnd_toEndOf="@id/head_banner"
-        app:layout_constraintTop_toTopOf="@id/middle_icon" />
 
     <ImageButton
         android:id="@+id/pulauSumatra"
@@ -114,8 +74,8 @@
         android:id="@+id/markerKalimantan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="128dp"
         android:layout_marginTop="150dp"
+        android:layout_marginEnd="128dp"
         android:src="@drawable/ic_outline_place_64"
         app:layout_constraintBottom_toBottomOf="@id/pulauKalimantan"
         app:layout_constraintEnd_toEndOf="@id/pulauKalimantan"
@@ -152,8 +112,8 @@
         android:id="@+id/pulauBali"
         android:layout_width="613dp"
         android:layout_height="152dp"
-        android:layout_marginTop="50dp"
         android:layout_marginStart="10dp"
+        android:layout_marginTop="50dp"
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
         android:src="@drawable/ic_bali"
@@ -164,8 +124,8 @@
         android:id="@+id/markerBali"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="60dp"
         android:layout_marginStart="-120dp"
+        android:layout_marginBottom="60dp"
         android:src="@drawable/ic_outline_place_64"
         app:layout_constraintBottom_toBottomOf="@id/pulauBali"
         app:layout_constraintEnd_toEndOf="@id/pulauBali"
@@ -262,7 +222,6 @@
         android:id="@+id/fabLanguage"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:padding="16dp"
         android:layout_marginVertical="24dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="32dp"
@@ -270,6 +229,7 @@
         android:clickable="true"
         android:contentDescription="@string/ubah_bahasa"
         android:elevation="3dp"
+        android:padding="16dp"
         android:scaleType="fitCenter"
         android:src="@drawable/ic_baseline_language_24dp_black"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mainLayout"
-    android:keepScreenOn="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:keepScreenOn="true"
     tools:context=".ui.maps.MapBaliActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -13,10 +13,11 @@
         android:layout_height="match_parent"
         android:background="@color/not_black">
 
-        <com.google.android.material.imageview.ShapeableImageView
+        <include
             android:id="@+id/head_banner"
+            layout="@layout/item_topbar"
             android:layout_width="match_parent"
-            android:layout_height="172dp"
+            android:layout_height="wrap_content"
             android:layout_marginHorizontal="98dp"
             android:adjustViewBounds="true"
             android:background="@drawable/map_rectangle"
@@ -25,46 +26,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:shapeAppearanceOverlay="@style/customRoundedImageView" />
-
-        <ImageView
-            android:layout_width="137dp"
-            android:layout_height="96dp"
-            android:layout_gravity="center"
-            android:contentDescription="logo_java_jazz_festival"
-            android:scaleType="centerInside"
-            android:src="@drawable/logo_like"
-            app:layout_constraintBottom_toBottomOf="@id/left_icon"
-            app:layout_constraintEnd_toEndOf="@id/head_banner"
-            app:layout_constraintStart_toStartOf="@id/head_banner"
-            app:layout_constraintTop_toTopOf="@id/left_icon" />
-
-        <ImageView
-            android:id="@+id/left_icon"
-            android:layout_width="280dp"
-            android:layout_height="96dp"
-            android:layout_gravity="start|center_vertical"
-            android:layout_marginStart="44dp"
-            android:background="@android:color/transparent"
-            android:contentDescription="@string/klhk"
-            android:scaleType="centerInside"
-            android:src="@drawable/logo_klhk"
-            app:layout_constraintBottom_toBottomOf="@id/head_banner"
-            app:layout_constraintStart_toStartOf="@id/head_banner"
-            app:layout_constraintTop_toTopOf="@id/head_banner" />
-
-        <ImageView
-            android:id="@+id/right_icon"
-            android:layout_width="302dp"
-            android:layout_height="96dp"
-            android:layout_gravity="end|center_vertical"
-            android:layout_marginEnd="44dp"
-            android:background="@android:color/transparent"
-            android:contentDescription="Back"
-            android:scaleType="fitCenter"
-            android:src="@drawable/logo_folu"
-            app:layout_constraintBottom_toBottomOf="@id/head_banner"
-            app:layout_constraintEnd_toEndOf="@id/head_banner"
-            app:layout_constraintTop_toTopOf="@id/head_banner" />
 
         <ImageView
             android:id="@+id/ivPulau"
@@ -89,9 +50,9 @@
             android:scaleType="fitCenter"
             android:src="@drawable/ic_outline_place_48"
             android:tag="40"
-            app:layout_constraintTop_toTopOf="@id/ivPulau"
             app:layout_constraintBottom_toBottomOf="@id/ivPulau"
-            app:layout_constraintEnd_toEndOf="@id/ivPulau" />
+            app:layout_constraintEnd_toEndOf="@id/ivPulau"
+            app:layout_constraintTop_toTopOf="@id/ivPulau" />
 
         <ImageButton
             android:id="@+id/placeButton2"
@@ -170,7 +131,6 @@
             android:tag="45"
             app:layout_constraintStart_toStartOf="@id/ivPulau"
             app:layout_constraintTop_toTopOf="@id/ivPulau" />
-
 
 
         <com.google.android.material.button.MaterialButton
