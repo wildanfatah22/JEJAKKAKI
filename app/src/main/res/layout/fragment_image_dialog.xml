@@ -21,8 +21,8 @@
         android:textSize="48sp"
         app:icon="@drawable/ic_cross"
         app:iconSize="64dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="@id/imageView"
+        app:layout_constraintBottom_toTopOf="@id/imageView"
         tools:layout_editor_absoluteX="20dp"
         tools:layout_editor_absoluteY="20dp" />
 

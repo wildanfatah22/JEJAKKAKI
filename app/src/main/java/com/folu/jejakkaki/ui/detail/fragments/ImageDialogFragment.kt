@@ -1,13 +1,15 @@
 package com.folu.jejakkaki.ui.detail.fragments
 
 import android.app.Dialog
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
+import android.view.WindowInsets
+import android.view.WindowInsetsController
+import androidx.core.view.WindowCompat
 import androidx.fragment.app.DialogFragment
-import com.folu.jejakkaki.R
 import com.folu.jejakkaki.databinding.FragmentImageDialogBinding
 
 class ImageDialogFragment : DialogFragment() {
@@ -52,11 +54,19 @@ class ImageDialogFragment : DialogFragment() {
             ViewGroup.LayoutParams.MATCH_PARENT
         )
 
-        // Menyembunyikan status bar
-        dialog?.window?.decorView?.systemUiVisibility =
-            View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
-                    View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or
-                    View.SYSTEM_UI_FLAG_FULLSCREEN
+        dialog?.window?.decorView?.let { decorView ->
+            WindowCompat.setDecorFitsSystemWindows(dialog!!.window!!, false)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                dialog!!.window!!.insetsController?.apply {
+                    hide(WindowInsets.Type.statusBars() or WindowInsets.Type.navigationBars())
+                    systemBarsBehavior = WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+                }
+            } else {
+                @Suppress("DEPRECATION")
+                decorView.systemUiVisibility =
+                    View.SYSTEM_UI_FLAG_FULLSCREEN or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+            }
+        }
 
         binding.btnBack.setOnClickListener {
             dismiss()
