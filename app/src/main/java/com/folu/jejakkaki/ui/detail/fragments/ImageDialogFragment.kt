@@ -1,9 +1,11 @@
 package com.folu.jejakkaki.ui.detail.fragments
 
 import android.app.Dialog
+import android.graphics.Rect
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowInsets
@@ -37,6 +39,20 @@ class ImageDialogFragment : DialogFragment() {
         _binding = FragmentImageDialogBinding.inflate(inflater, container, false)
         val imageResId = arguments?.getInt(IMAGE_RES_ID)
         imageResId?.let { binding.imageView.setImageResource(it) }
+
+        binding.root.setOnTouchListener { view, event ->
+            if (event.action == MotionEvent.ACTION_DOWN) {
+                val viewRect = Rect()
+                binding.imageView.getGlobalVisibleRect(viewRect)
+                if (!viewRect.contains(event.rawX.toInt(), event.rawY.toInt())) {
+                    dismiss()
+                    return@setOnTouchListener true
+                }
+            }
+            view.performClick()
+            false
+        }
+
         return binding.root
     }
 
@@ -58,18 +74,14 @@ class ImageDialogFragment : DialogFragment() {
             WindowCompat.setDecorFitsSystemWindows(dialog!!.window!!, false)
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
                 dialog!!.window!!.insetsController?.apply {
-                    hide(WindowInsets.Type.statusBars() or WindowInsets.Type.navigationBars())
+                    hide(WindowInsets.Type.statusBars())
                     systemBarsBehavior = WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
                 }
             } else {
                 @Suppress("DEPRECATION")
                 decorView.systemUiVisibility =
-                    View.SYSTEM_UI_FLAG_FULLSCREEN or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                    View.SYSTEM_UI_FLAG_FULLSCREEN or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
             }
-        }
-
-        binding.btnBack.setOnClickListener {
-            dismiss()
         }
     }
 

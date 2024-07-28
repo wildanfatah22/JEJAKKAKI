@@ -2,35 +2,47 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="700dp"
-    android:layout_height="450dp"
-    android:background="@color/blue"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/semi_transparent_black"
     tools:context=".ui.LanguageFragment">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/shapeImage"
+        android:layout_width="800dp"
+        android:layout_height="600dp"
+        android:background="@color/not_black"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize10Percent"
+        />
 
     <TextView
         android:id="@+id/tvLanguage"
         style="@style/TextContent.Subtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="60dp"
         android:text="@string/ubah_bahasa"
         android:textColor="@color/white"
         android:textSize="48sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="@id/shapeImage"
+        app:layout_constraintStart_toStartOf="@id/shapeImage"
+        app:layout_constraintTop_toTopOf="@id/shapeImage" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnID"
-        android:fontFamily="@font/syne_bold"
         style="@style/TextContent"
         android:layout_width="500dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="50dp"
-        android:backgroundTint="@color/white"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="80dp"
         android:background="@drawable/bg_btn_language"
+        android:backgroundTint="@color/white"
         android:drawableStart="@drawable/flag_id"
+        android:fontFamily="@font/syne_bold"
         android:padding="25dp"
         android:text="@string/indonesia"
         android:textAllCaps="false"
@@ -41,23 +53,24 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnENG"
-        android:fontFamily="@font/syne_bold"
         style="@style/TextContent"
         android:layout_width="500dp"
-        android:backgroundTint="@color/white"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="50dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="30dp"
         android:background="@drawable/bg_btn_language"
+        android:backgroundTint="@color/white"
         android:drawableStart="@drawable/flag_english"
+        android:fontFamily="@font/syne_bold"
         android:padding="25dp"
         android:text="@string/inggris"
         android:textAllCaps="false"
         android:textColor="@color/red"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/shapeImage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btnID" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

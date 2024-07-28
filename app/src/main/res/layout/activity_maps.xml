@@ -225,7 +225,7 @@
         android:layout_marginVertical="24dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="32dp"
-        android:background="@drawable/blue_bg"
+        android:background="@drawable/bg_btn_language"
         android:clickable="true"
         android:contentDescription="@string/ubah_bahasa"
         android:elevation="3dp"

@@ -24,7 +24,6 @@ import com.folu.jejakkaki.ui.maps.MapMalukuActivity
 import com.folu.jejakkaki.ui.maps.MapPapuaActivity
 import com.folu.jejakkaki.ui.maps.MapSulawesiActivity
 import com.folu.jejakkaki.ui.maps.MapSumatraActivity
-import com.folu.jejakkaki.ui.video.VideoActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay

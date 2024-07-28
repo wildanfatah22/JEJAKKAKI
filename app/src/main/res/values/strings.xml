@@ -1393,5 +1393,6 @@ Seek the baffling lichen forest in Gandang Dwata, where branches draped in liche
     <string name="kembali">Back</string>
     <string name="tutup">Close</string>
     <string name="jendela_kekayaan">Exploring \nIndonesia\'s Wealth</string>
+    <string name="error_ganti_bahasa">There is an issue when changing the language</string>
 
 </resources>
