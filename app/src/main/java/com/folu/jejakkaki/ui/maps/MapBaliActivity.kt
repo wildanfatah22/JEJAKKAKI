@@ -22,7 +22,6 @@ class MapBaliActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMapBaliBinding
     private var currentPreviewPlace: Place? = null
     private var infoWindowPopup: PopupWindow? = null
-    private val handler = Handler(Looper.getMainLooper())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,9 +53,7 @@ class MapBaliActivity : AppCompatActivity() {
             binding.backgroundOverlay.visibility = View.GONE
         }
 
-        val btnBack = binding.btnBack
-
-        btnBack.setOnClickListener {
+        binding.btnBack.setOnClickListener {
             onBackPressedDispatcher.onBackPressed()
         }
     }
@@ -108,15 +105,12 @@ class MapBaliActivity : AppCompatActivity() {
         }
 
         // Close the popup when clicking outside
-        val mainLayout = findViewById<View>(R.id.mainLayout)
-        mainLayout.setOnClickListener {
+        findViewById<View>(R.id.mainLayout).setOnClickListener {
             hidePreview()
             binding.backgroundOverlay.visibility = View.GONE
         }
 
-        val btnBack = binding.btnBack
-
-        btnBack.setOnClickListener {
+        binding.btnBack.setOnClickListener {
             onBackPressedDispatcher.onBackPressed()
         }
     }
@@ -141,11 +135,12 @@ class MapBaliActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        // Remove callbacks to avoid memory leaks
-        handler.removeCallbacksAndMessages(null)
+        // Dismiss PopupWindow to avoid memory leaks
+        infoWindowPopup?.dismiss()
     }
 
     override fun onBackPressed() {
+        super.onBackPressed()
         finish()
     }
 }

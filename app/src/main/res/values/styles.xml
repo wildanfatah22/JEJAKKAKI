@@ -26,7 +26,11 @@
         <item name="cornerSizeBottomRight">32dp</item>
     </style>
 
-    <style name="ShapeAppearanceOverlay.App.CornerSize10Percent" parent="">
+    <style name="ShapeAppearanceOverlay.App.CornerSize20Percent" parent="">
         <item name="cornerSize">20%</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.App.CornerSize10Percent" parent="">
+        <item name="cornerSize">10%</item>
     </style>
 </resources>

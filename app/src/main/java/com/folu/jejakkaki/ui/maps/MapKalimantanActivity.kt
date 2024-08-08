@@ -22,7 +22,6 @@ class MapKalimantanActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMapKalimantanBinding
     private var currentPreviewPlace: Place? = null
     private var infoWindowPopup: PopupWindow? = null
-    private val handler = Handler(Looper.getMainLooper())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,7 +38,7 @@ class MapKalimantanActivity : AppCompatActivity() {
             binding.placeButton5,
             binding.placeButton6,
             binding.placeButton7,
-            binding.placeButton8,
+            binding.placeButton8
         )
         for (button in placeButtons) {
             button.setOnClickListener {
@@ -55,9 +54,7 @@ class MapKalimantanActivity : AppCompatActivity() {
             binding.backgroundOverlay.visibility = View.GONE
         }
 
-        val btnBack = binding.btnBack
-
-        btnBack.setOnClickListener {
+        binding.btnBack.setOnClickListener {
             onBackPressedDispatcher.onBackPressed()
         }
     }
@@ -109,15 +106,12 @@ class MapKalimantanActivity : AppCompatActivity() {
         }
 
         // Close the popup when clicking outside
-        val mainLayout = findViewById<View>(R.id.mainLayout)
-        mainLayout.setOnClickListener {
+        findViewById<View>(R.id.mainLayout).setOnClickListener {
             hidePreview()
             binding.backgroundOverlay.visibility = View.GONE
         }
 
-        val btnBack = binding.btnBack
-
-        btnBack.setOnClickListener {
+        binding.btnBack.setOnClickListener {
             onBackPressedDispatcher.onBackPressed()
         }
     }
@@ -142,11 +136,12 @@ class MapKalimantanActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        // Remove callbacks to avoid memory leaks
-        handler.removeCallbacksAndMessages(null)
+        // Dismiss PopupWindow to avoid memory leaks
+        infoWindowPopup?.dismiss()
     }
 
     override fun onBackPressed() {
+        super.onBackPressed()
         finish()
     }
 }

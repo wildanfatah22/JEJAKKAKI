@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mainLayout"
-    android:keepScreenOn="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:keepScreenOn="true"
     tools:context=".ui.maps.MapPapuaActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -13,10 +13,11 @@
         android:layout_height="match_parent"
         android:background="@color/not_black">
 
-        <com.google.android.material.imageview.ShapeableImageView
+        <include
             android:id="@+id/head_banner"
+            layout="@layout/item_topbar"
             android:layout_width="match_parent"
-            android:layout_height="172dp"
+            android:layout_height="wrap_content"
             android:layout_marginHorizontal="98dp"
             android:adjustViewBounds="true"
             android:background="@drawable/map_rectangle"
@@ -27,57 +28,17 @@
             app:shapeAppearanceOverlay="@style/customRoundedImageView" />
 
         <ImageView
-            android:layout_width="137dp"
-            android:layout_height="96dp"
-            android:layout_gravity="center"
-            android:contentDescription="logo_java_jazz_festival"
-            android:scaleType="centerInside"
-            android:src="@drawable/logo_jjf_white"
-            app:layout_constraintBottom_toBottomOf="@id/head_banner"
-            app:layout_constraintEnd_toEndOf="@id/head_banner"
-            app:layout_constraintStart_toStartOf="@id/head_banner"
-            app:layout_constraintTop_toTopOf="@id/head_banner" />
-
-        <ImageView
-            android:id="@+id/left_icon"
-            android:layout_width="280dp"
-            android:layout_height="96dp"
-            android:layout_gravity="start|center_vertical"
-            android:layout_marginStart="44dp"
-            android:background="@android:color/transparent"
-            android:contentDescription="@string/klhk"
-            android:scaleType="centerInside"
-            android:src="@drawable/ic_klhk"
-            app:layout_constraintBottom_toBottomOf="@id/head_banner"
-            app:layout_constraintStart_toStartOf="@id/head_banner"
-            app:layout_constraintTop_toTopOf="@id/head_banner" />
-
-        <ImageView
-            android:id="@+id/right_icon"
-            android:layout_width="302dp"
-            android:layout_height="96dp"
-            android:layout_gravity="end|center_vertical"
-            android:layout_marginEnd="44dp"
-            android:background="@android:color/transparent"
-            android:contentDescription="Back"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_folunet"
-            app:layout_constraintBottom_toBottomOf="@id/head_banner"
-            app:layout_constraintEnd_toEndOf="@id/head_banner"
-            app:layout_constraintTop_toTopOf="@id/head_banner" />
-
-        <ImageView
             android:id="@+id/ivPulau"
             android:layout_width="1030dp"
             android:layout_height="881dp"
-            android:layout_marginBottom="107dp"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
             android:src="@drawable/ic_papua"
             android:transitionName="pulauPapua"
             app:layout_constraintBottom_toTopOf="@id/tvLogo"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnBack" />
 
         <ImageButton
             android:id="@+id/placeButton1"
@@ -118,6 +79,25 @@
             app:layout_constraintStart_toStartOf="@id/ivPulau"
             app:layout_constraintTop_toTopOf="@id/ivPulau" />
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnBack"
+            android:layout_width="350dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="72dp"
+            android:background="@android:color/transparent"
+            android:clickable="true"
+            android:fontFamily="@font/syne_bold"
+            android:text="@string/kembali"
+            android:textAlignment="viewStart"
+            android:textColor="@color/white"
+            android:textSize="48sp"
+            app:icon="@drawable/bx_left_arrow"
+            app:iconSize="64dp"
+            app:layout_constraintStart_toStartOf="@id/head_banner"
+            app:layout_constraintTop_toBottomOf="@id/head_banner"
+            tools:layout_editor_absoluteX="20dp"
+            tools:layout_editor_absoluteY="20dp" />
+
         <TextView
             android:id="@+id/tvPulau"
             android:layout_width="wrap_content"
@@ -126,9 +106,9 @@
             android:text="@string/pulau_papua"
             android:textAlignment="center"
             android:textColor="@color/not_white"
-            android:textSize="58sp"
+            android:textSize="48sp"
             app:layout_constraintEnd_toEndOf="@id/head_banner"
-            app:layout_constraintTop_toTopOf="@id/ivPulau" />
+            app:layout_constraintTop_toTopOf="@id/btnBack" />
 
         <TextView
             android:id="@+id/tvLogo"
@@ -136,7 +116,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="62dp"
             android:fontFamily="@font/neutro_extrabold"
-            android:text="Jendela Jelajah \nKekayaan Indonesia"
+            android:text="@string/jendela_kekayaan"
             android:textColor="@color/not_white"
             android:textSize="46sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -151,21 +131,5 @@
         android:background="@android:color/transparent"
         android:clickable="true"
         android:visibility="gone" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnBack"
-        android:layout_width="342dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="98dp"
-        android:layout_marginTop="266dp"
-        android:background="@android:color/transparent"
-        android:clickable="true"
-        android:fontFamily="@font/syne_bold"
-        android:text="@string/kembali"
-        android:textAlignment="viewStart"
-        android:textColor="@color/white"
-        android:textSize="48sp"
-        app:icon="@drawable/bx_left_arrow"
-        app:iconSize="64dp" />
 
 </RelativeLayout>

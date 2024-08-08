@@ -1642,4 +1642,6 @@
     <string name="klhk">KLHK</string>
     <string name="kembali">Kembali</string>
     <string name="tutup">Tutup</string>
+    <string name="jendela_kekayaan">Jendela Jelajah \nKekayaan Indonesia</string>
+    <string name="error_ganti_bahasa">Ada masalah ketika mengubah bahasa</string>
 </resources>

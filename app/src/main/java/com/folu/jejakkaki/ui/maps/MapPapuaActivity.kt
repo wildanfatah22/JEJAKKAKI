@@ -22,7 +22,6 @@ class MapPapuaActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMapPapuaBinding
     private var currentPreviewPlace: Place? = null
     private var infoWindowPopup: PopupWindow? = null
-    private val handler = Handler(Looper.getMainLooper())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -137,11 +136,12 @@ class MapPapuaActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        // Remove callbacks to avoid memory leaks
-        handler.removeCallbacksAndMessages(null)
+        // Dismiss PopupWindow to avoid memory leaks
+        infoWindowPopup?.dismiss()
     }
 
     override fun onBackPressed() {
+        super.onBackPressed()
         finish()
     }
 }
